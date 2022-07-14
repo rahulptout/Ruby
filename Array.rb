@@ -1,0 +1,2 @@
+array << "rahul"
+puts array
