@@ -1,0 +1,1278 @@
+
+
+===============================================================================
+ Tag dbi-0-0-21 (2003-09-07 13:00 UTC)
+===============================================================================
+
+
+2003-09-07 12:44  Michael Neumann <mneumann@ntecs.de>
+
+	* build/USER: modified email address
+	
+2003-09-07 12:41  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbi/version.rb, build/DBI-VERSIONS: new version
+	
+2003-09-07 12:40  Michael Neumann <mneumann@ntecs.de>
+
+	* build/package.sh: added further dialog
+	
+2003-06-10 21:40  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbi/: sql.rb, test/testsqlbind.rb: fixed SQL tokenizer bug: single slashes are preserved
+	
+
+
+===============================================================================
+ Tag dbi-0-0-20 (2003-06-06 12:00 UTC)
+===============================================================================
+
+
+2003-06-06 10:54  Michael Neumann <mneumann@ntecs.de>
+
+	* build/DBI-VERSIONS, lib/dbi/version.rb: new version
+	
+2003-06-06 10:48  Michael Neumann <mneumann@ntecs.de>
+
+	* doc/index.rd: contributors added
+	
+2003-06-03 18:46  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbi/utils.rb: TableFormatter: convert false to "false", not "NULL" (MoonWolf)
+	
+2003-06-03 18:42  Michael Neumann <mneumann@ntecs.de>
+
+	* ext/dbd_sqlite/SQLite.c: Database#columns method added (MoonWolf)
+	
+2003-05-31 15:52  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbi/utils.rb: fixed quoting bug ('\"' should be '"') in textconv (Brian Candler)
+	
+2003-05-18 20:18  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbd_pg/Pg.rb: applied array patches by Oliver M. Bolzer (DBD::Pg can now handle Postgres arrays)
+	
+2003-05-16 09:50  Michael Neumann <mneumann@ntecs.de>
+
+	* doc/index.rd: new contributors; link to OCI8 DBD
+	
+2003-05-16 09:44  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbi/test/testsqlbind.rb: added new test cases for "-" bug
+	
+2003-05-16 09:43  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbi/test/: testrow.rb, testsqlcoerce.rb, testsqlquote.rb: verbose mode
+	
+2003-05-16 09:43  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbi/sql.rb: bug fixed: "SELECT 1 - 3" was incorrectly transformed into "SELECT 1 3"
+	
+2003-05-14 19:52  Michael Neumann <mneumann@ntecs.de>
+
+	* ext/dbd_sqlite/: SQLite.c, test/segfault-bug.rb: fixed bug: Prepared statement is executed twice: once with no match, once with
+	a match. The second case fails and segfaults.
+	
+2003-05-14 18:36  Michael Neumann <mneumann@ntecs.de>
+
+	* ext/dbd_sqlite/: SQLite.c, test/test.rb: Patch by <moonwolf@moonwolf.com>:
+	* fix Row Processed Count(sqlite_changes() function)
+	* fix DBI::Timestamp quote format for Timestamp sorting
+	 before '2003-2-13 1.2.3.0' => after '2003-02-13 01:02:03'
+	
+2003-05-11 15:29  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbd_pg/Pg.rb: added NonBlocking execution mode
+	
+2003-05-11 15:27  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbi/dbi.rb: class Timestamp:
+	  - fraction nil by default
+	  - fractions may be of type float (as well as integer)
+	  - #to_s do not show fraction if it's nil
+	
+2003-05-09 19:54  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbi/dbi.rb: zero-pad date/time/timestamps (classes Date/Time/Timestamp method to_s)
+	
+
+
+===============================================================================
+ Tag dbi-0-0-19 (2003-04-27 23:00 UTC)
+===============================================================================
+
+
+2003-04-27 19:18  Michael Neumann <mneumann@ntecs.de>
+
+	* build/package.sh: fixed RAA entry update address
+	
+2003-04-27 18:51  Michael Neumann <mneumann@ntecs.de>
+
+	* build/DBI-VERSIONS, build/USER, lib/dbi/version.rb: new version
+	
+2003-04-27 17:42  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbi/dbi.rb: bug fix in class DBI::Time (wrong named variable)
+	
+2003-04-27 17:40  Michael Neumann <mneumann@ntecs.de>
+
+	* doc/index.rd: new contributor
+	
+2003-04-27 17:37  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbi/sql.rb: Fixed bug in DBI::SQL::BasicQuote::Coerce#as_time
+	Mysql time columns (like "13:32:33") could not be converted into DBI::Time objects
+	(thanks to Tim Bates)
+	
+2003-04-21 18:09  eliask
+
+	* lib/dbd_db2/DB2.rb: DB2 driver support for columns(table)
+	
+2003-04-02 15:42  Paul Dubois
+
+	* lib/dbd_mysql/Mysql.rb: 
+	Modify transaction support to use self.do rather than @handler.query
+	so that query execution is routed through the mutex.
+	
+2003-02-08 02:26  Paul Dubois
+
+	* lib/dbi/dbi.rb: Fix bug in case insensitive driver name lookup on case insensitive filesystems
+	
+2003-02-08 02:03  Paul Dubois
+
+	* lib/dbd_mysql/Mysql.rb: Add transaction support: commit and rollback methods, AutoCommit database handle attribute
+	
+2003-02-08 01:46  Paul Dubois
+
+	* lib/dbd_mysql/Mysql.rb: return MySQL error number on exceptions, not just error message
+	
+2003-02-08 01:37  Paul Dubois
+
+	* lib/dbd_mysql/Mysql.rb: port and flag connection parameters must be passed as numbers
+	
+2003-02-08 00:37  Paul Dubois
+
+	* lib/dbd_mysql/Mysql.rb: Do not force user to provide database name when connecting
+	
+2003-02-01 13:51  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbi/test/testsqlbind.rb: added comment test
+	
+2003-02-01 13:45  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbi/sql.rb: method BasicBind#tokens: added support for C-style (non-nesting) and Ada/SQL92-style comments
+	
+2003-01-22 10:55  Michael Neumann <mneumann@ntecs.de>
+
+	* doc/index.rd: added contributor, added Articles section
+	
+2003-01-22 10:52  Michael Neumann <mneumann@ntecs.de>
+
+	* doc/: DBD_SPEC, DBI_SPEC: fixed wrong email address
+	
+2003-01-22 10:45  Michael Neumann <mneumann@ntecs.de>
+
+	* doc/: DBD_SPEC, DBI_SPEC: Fix typos and formatting (by Paul DuBois).
+	
+2002-12-28 14:36  eliask
+
+	* lib/dbd_db2/DB2.rb: experimental support for BLOBs via SQLBindParameter
+	
+2002-10-28 11:18  Michael Neumann <mneumann@ntecs.de>
+
+	* build/package.sh: # Removed the removing of empty dirs. Use cvs -P option (implicit) instead.
+	
+2002-10-25 12:48  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbd_pg/Pg.rb: rollback transactions on disconnect
+	
+
+
+===============================================================================
+ Tag dbi-0-0-18 (2002-10-22 23:00 UTC)
+===============================================================================
+
+
+2002-10-22 15:25  Michael Neumann <mneumann@ntecs.de>
+
+	* doc/index.rd: contributor added
+	
+2002-10-22 15:15  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbi/trace.rb: remove warnings
+	
+2002-10-22 15:06  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbi/dbi.rb: Driver URLs are now case-sensitive when in SAFE mode >= 1. This prevent a security error.
+	
+2002-10-22 14:53  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbd_pg/Pg.rb: reverted to old transaction handling schema; removed usage of SET AUTOCOMMIT TO ON|OFF.
+	
+2002-10-22 14:00  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbd_pg/Pg.rb: Use PostgreSQL specific quoting function (PGconn.quote) instead of default if available.
+	Use PGconn.escape_bytea instead of own __escape_bytea function if available.
+	
+2002-10-03 10:21  Michael Neumann <mneumann@ntecs.de>
+
+	* build/package.sh: fixed bug
+	
+
+
+===============================================================================
+ Tag dbi-0-0-17 (2002-10-03 10:00 UTC)
+===============================================================================
+
+
+2002-10-03 09:53  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbi/version.rb: new version
+	
+2002-10-03 09:49  Michael Neumann <mneumann@ntecs.de>
+
+	* build/package.sh: initial creation; handles all release steps
+	
+2002-10-02 18:56  Michael Neumann <mneumann@ntecs.de>
+
+	* doc/create_html: removed
+	
+2002-10-02 18:26  Michael Neumann <mneumann@ntecs.de>
+
+	* doc/html/index.html: removed
+	
+2002-10-02 18:10  Michael Neumann <mneumann@ntecs.de>
+
+	* doc/: DBD_SPEC, DBI_SPEC, ToDo: moved from ../lib/dbi/doc
+	
+2002-10-02 18:04  Michael Neumann <mneumann@ntecs.de>
+
+	* build/: DBI-VERSIONS, Makefile, USER, cl2html.sh,
+	create_changelog.rb, cvs2cl: initial import
+	
+2002-10-02 17:53  Michael Neumann <mneumann@ntecs.de>
+
+	* setup.rb: install on debian-unstable into /usr/local/lib/site_ruby/<version> (by Brad Hilton)
+	
+2002-09-26 18:37  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbd_mysql/Mysql.rb: add support for coercing column values (patch by Brad Hilton)
+	
+2002-09-26 13:40  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbd_pg/Pg.rb: removed method send_sql and inlined it's code instead (little speed improvement)
+	
+2002-09-26 13:32  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbd_pg/Pg.rb: converted tabs to spaces
+	
+2002-09-26 13:28  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbd_pg/Pg.rb: rewritten transaction handling (uses now Postgres' "SET AUTOCOMMIT ON|OFF")
+	
+2002-09-13 09:10  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbd_pg/Pg.rb: fix quoting backslashes bug (Brad Hilton)
+	
+2002-08-02 13:59  Michael Neumann <mneumann@ntecs.de>
+
+	* contrib/dbrc/dbrc.rb: added dsn method, minor doc additions
+	
+2002-08-01 19:00  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbi/dbi.rb: added Date#to_time/to_date/mday/mday= Time#to_time Timestamp#mday/mday= (Dave Thomas)
+	
+2002-07-26 20:43  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbi/dbi.rb: Time/Date => ::Time/::Date
+	
+2002-07-26 20:41  Michael Neumann <mneumann@ntecs.de>
+
+	* setup.rb: skip CVS directories (Dave Thomas)
+	
+2002-07-26 18:13  Michael Neumann <mneumann@ntecs.de>
+
+	* doc/index.rd: added contributors
+	
+2002-07-26 18:12  Michael Neumann <mneumann@ntecs.de>
+
+	* contrib/dbrc/: README, dbrc.rb: initial import
+	
+2002-07-26 17:56  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbd_pg/Pg.rb: enhanced conversion: default is to_str, added timestamp (with/without timezone)
+	
+2002-07-26 17:51  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbi/dbi.rb: added methods Timestamp#to_time/to_date (Dave Thomas)
+	
+
+
+===============================================================================
+ Tag dbi-0-0-16 (2002-07-03 20:10 UTC)
+===============================================================================
+
+
+2002-07-03 20:09  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbi/version.rb: new version
+	
+2002-07-03 20:07  Michael Neumann <mneumann@ntecs.de>
+
+	* doc/index.rd: added contributor
+	
+2002-07-03 19:56  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbd_pg/Pg.rb: added Statement#fetch_scroll (patch by Stephen Davies)
+	
+2002-07-03 19:24  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbi/dbi.rb: Added StatementHandle#[] and #[]=. Updated DBI and DBD specs.
+	
+2002-07-03 19:22  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbd_pg/Pg.rb: Fixed semantic of method Statement#rows (affects also Database#do):
+	Now returns the Row Processed Count instead of the number of rows in the result.
+	The old behaviour is still available through method Statement#['pg_row_count'].
+	
+2002-07-03 16:48  Michael Neumann <mneumann@ntecs.de>
+
+	* bin/commandline/sqlsh.rb, bin/proxyserver/proxyserver.rb,
+	doc/index.rd, doc/html/index.html, ext/dbd_sqlite/SQLite.c,
+	lib/dbd_ado/ADO.rb, lib/dbd_db2/DB2.rb,
+	lib/dbd_interbase/InterBase.rb, lib/dbd_msql/Msql.rb,
+	lib/dbd_mysql/Mysql.rb, lib/dbd_odbc/ODBC.rb,
+	lib/dbd_oracle/Oracle.rb, lib/dbd_pg/Pg.rb, lib/dbd_proxy/Proxy.rb,
+	lib/dbd_sqlrelay/SQLRelay.rb, lib/dbi/dbi.rb, LICENSE: license changed from GNU GPL to BSD
+	
+2002-06-13 15:45  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbd_pg/test/test_bytea.rb: initial creation
+	
+2002-06-13 15:45  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbd_pg/Pg.rb: added method Database#__encode_bytea; decode values of type bytea to string
+	
+
+
+===============================================================================
+ Tag dbi-0-0-15 (2002-05-21 21:59 UTC)
+===============================================================================
+
+
+2002-05-21 18:52  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbd_mysql/Mysql.rb: added driver specific method Database#__insert_id
+	
+2002-05-21 18:41  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbi/dbi.rb: explicitly initialize @trace_mode and @trace_output in Handle#initialize (omits disturbing warning messages)
+	
+2002-05-21 18:36  Michael Neumann <mneumann@ntecs.de>
+
+	* examples/trace_test.rb: initial import
+	
+2002-05-21 18:33  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbi/: dbi.rb, version.rb: moved VERSION from dbi.rb to version.rb
+	
+
+
+===============================================================================
+ Tag dbi-0-0-14 (2002-05-14 18:16 UTC)
+===============================================================================
+
+
+2002-05-14 18:07  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbi/dbi.rb: updated version
+	
+2002-05-14 18:03  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbd_mysql/Mysql.rb: fixed bug: method #do and #execute both set query_with_result of the same
+	underlying database object. This results in errors if you mix both method
+	calls (not neccessarily called concurrently). Solution: Mutex.
+	
+2002-04-17 13:43  Michael Neumann <mneumann@ntecs.de>
+
+	* doc/index.rd: added contributor
+	
+2002-04-17 13:38  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbd_pg/Pg.rb: cache calls to PGResult#result in class Tuples (by James F.Hranicky); which increases performance around factor 100.
+	
+
+
+===============================================================================
+ Tag dbi-0-0-13 (2002-04-16 21:59 UTC)
+===============================================================================
+
+
+2002-04-16 20:24  Michael Neumann <mneumann@ntecs.de>
+
+	* doc/index.rd: updates links to sf.net
+	
+2002-04-16 20:24  Michael Neumann <mneumann@ntecs.de>
+
+	* doc/sf_logo.html: initial import
+	
+2002-02-06 18:05  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbd_odbc/ODBC.rb: fixed bug in method columns
+	
+2002-02-06 17:27  Michael Neumann <mneumann@ntecs.de>
+
+	* bin/proxyserver/proxyserver.rb: upgraded to DBD API 0.2
+	fixed bug (checking version numbers)
+	
+2002-02-06 17:26  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbd_proxy/Proxy.rb: upgraded to DBD API 0.2
+	
+2002-02-06 14:24  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbi/sql.rb: method SQL::BasicQuote::Coerce::as_timestamp: return nil if str is empty (Sean Chittenden)
+	
+2002-01-04 11:54  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbi/dbi.rb: new version
+	
+2002-01-04 11:52  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/: dbd_mysql/Mysql.rb, dbd_pg/Pg.rb: fixed bind_param bug by removing method bind_params
+	
+2002-01-04 11:52  Michael Neumann <mneumann@ntecs.de>
+
+	* test/testdbi.rb: added test-case for bind_param bug (only in Mysql and Pg driver)
+	
+2002-01-02 00:54  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbd_pg/Pg.rb: removed duplicate definition for the [] accessor method (Sean Chittenden)
+	
+2001-12-28 14:07  Michael Neumann <mneumann@ntecs.de>
+
+	* examples/xmlgen.rb: initial import
+	
+2001-12-28 13:19  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbd_sqlrelay/SQLRelay.rb: updated version by David Muse <david.muse@zapmedia.com>
+	
+
+
+===============================================================================
+ Tag dbi-0-0-12 (2001-12-28 13:08 UTC)
+===============================================================================
+
+
+2001-12-28 13:05  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbi/test/testsqlcoerce.rb: initial creation
+	
+2001-12-28 10:18  Michael Neumann <mneumann@ntecs.de>
+
+	* doc/index.rd: fixed doc
+	
+2001-12-28 00:54  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbi/sql.rb: DBI::SQL::BasicQuote::Coerce: don't try to convert nil; instead return nil in this case
+	
+2001-12-14 15:16  Michael Neumann <mneumann@ntecs.de>
+
+	* doc/index.rd: fixed doc-bug
+	
+2001-12-02 17:23  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbd_pg/Pg.rb: fixed bug (displayed wrong default values) in method columns
+	
+2001-11-26 00:12  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbd_oracle/Oracle.rb: included Jim Menards columns methods
+	
+2001-11-25 23:26  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbd_oracle/Oracle.rb: implemented ?-style parameter markers
+	
+2001-11-25 23:25  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbi/sql.rb: added attribute accessor for unbound in class PreparedStatement
+	
+2001-11-22 15:20  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbd_pg/Pg.rb: added method bind_params
+	do no more call commit/rollback if not in transaction
+	use class SQL::PreparedStatement
+	
+2001-11-22 14:27  Michael Neumann <mneumann@ntecs.de>
+
+	* ext/dbd_sqlite/: README, SQLite.c, extconf.rb: added type conversion
+	
+2001-11-22 14:27  Michael Neumann <mneumann@ntecs.de>
+
+	* bin/PATHCONV: added proxyserver
+	
+2001-11-22 14:25  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbi/test/testsqlbind.rb: added test for class PreparedStatement
+	
+2001-11-22 14:25  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbi/dbi.rb: added constant SQL_TYPE_NAMES, for SQL_XXX constant to SQL type name mapping
+	
+2001-11-22 14:23  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbi/sql.rb: added class PreparedStatement
+	
+2001-11-22 14:21  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbd_odbc/ODBC.rb: fixed tables
+	added ping, columns
+	extended column_info
+	
+2001-11-22 14:19  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbd_mysql/Mysql.rb: use SQL::PreparedStatement to improve speed
+	
+2001-11-21 15:03  Michael Neumann <mneumann@ntecs.de>
+
+	* ext/dbd_sqlite/SQLite.c: added conversion routine
+	
+2001-11-21 15:01  Michael Neumann <mneumann@ntecs.de>
+
+	* test/michael/sqlite.cfg, test/michael/sqlite/config.sh,
+	test/michael/sqlite/setup.sh, test/michael/sqlite/teardown.sh,
+	ext/dbd_sqlite/README: initial import
+	
+2001-11-17 17:17  Michael Neumann <mneumann@ntecs.de>
+
+	* bin/proxyserver/proxyserver.rb: moved from examples/
+	
+2001-11-17 17:17  Michael Neumann <mneumann@ntecs.de>
+
+	* examples/proxyserver.rb: moved to bin/proxyserver
+	
+2001-11-17 15:53  Michael Neumann <mneumann@ntecs.de>
+
+	* bin/commandline/sqlsh.rb: command-line option --file
+	
+2001-11-17 14:55  Michael Neumann <mneumann@ntecs.de>
+
+	* bin/PATHCONV: initial import
+	
+2001-11-17 14:54  Michael Neumann <mneumann@ntecs.de>
+
+	* bin/commandline/sqlsh.rb: refactored code; new feature irb/rb; moved from examples dir
+	
+2001-11-17 14:52  Michael Neumann <mneumann@ntecs.de>
+
+	* examples/sqlsh.rb: moved to bin/commandline
+	
+2001-11-14 14:11  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbd_pg/test/test_blob.rb: improved blob test
+	
+2001-11-14 14:04  Michael Neumann <mneumann@ntecs.de>
+
+	* ext/dbd_sqlite/extconf.rb: fixed
+	
+2001-11-14 13:41  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbi/dbi.rb: DatabaseError.new without arguments
+	
+2001-11-14 13:38  Michael Neumann <mneumann@ntecs.de>
+
+	* ext/PATHCONV: new dbd
+	
+2001-11-14 13:38  Michael Neumann <mneumann@ntecs.de>
+
+	* ext/dbd_sqlite/: SQLite.c, extconf.rb: initial import
+	
+
+
+===============================================================================
+ Tag dbi-0-0-11 (2001-11-14 13:12 UTC)
+===============================================================================
+
+
+2001-11-13 14:53  Michael Neumann <mneumann@ntecs.de>
+
+	* examples/sqlsh.rb: abort table output with "a"
+	
+2001-11-13 14:25  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbd_mysql/Mysql.rb: fixed quote
+	fixed finish (method do => no result handle => nil.free => exception)
+	
+2001-11-13 14:25  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbd_mysql/test/blob_test.rb: initial import
+	
+2001-11-13 11:31  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbd_odbc/ODBC.rb: small fix
+	
+2001-11-13 11:29  Michael Neumann <mneumann@ntecs.de>
+
+	* doc/index.rd, lib/dbi/dbi.rb: new version
+	
+2001-11-13 11:00  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbd_pg/Pg.rb: improved Database#ping
+	
+2001-11-13 11:00  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbd_pg/test/test_ping.rb: initial import
+	
+2001-11-12 20:27  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/PATHCONV: added SQLRelay
+	
+2001-11-12 20:25  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbd_sqlrelay/SQLRelay.rb: added AutoCommit, added fetch_scroll...
+	
+2001-11-12 19:40  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbd_pg/test/test_blob.rb: initial creation
+	
+2001-11-12 19:37  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbd_pg/Pg.rb: added Databaseattribute: pg_client_encoding
+	added driver specific functions in Database: blob_import, blob_export, blob_create, blob_open, blob_unlink and blob_read
+	convert DBI::Binary objects to OID's and insert the content as BLOB
+	
+2001-11-11 20:57  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbd_sqlrelay/SQLRelay.rb: initial import
+	
+2001-11-09 16:08  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbd_mysql/Mysql.rb: modified method column_info
+	
+2001-11-09 01:32  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbd_db2/DB2.rb: fixed several bugs
+	
+2001-11-08 23:45  Michael Neumann <mneumann@ntecs.de>
+
+	* test/michael/: pg.cfg, pg/config.sh, pg/setup.sh, pg/teardown.sh: initial import
+	
+2001-11-08 23:45  Michael Neumann <mneumann@ntecs.de>
+
+	* test/testdbi.rb: fixed bug (skaro)
+	
+2001-11-08 23:31  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbi/sql.rb: corrected type prefix (DBI::)
+	
+2001-11-08 23:30  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbi/test/: testsqlbind.rb, testsqlquote.rb: fixed require (dbi instead of just sql)
+	
+2001-11-08 22:39  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbi/utils.rb: TableFormatter#ascii modified
+	
+2001-11-08 22:38  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbd_pg/Pg.rb: method columns: extract default value
+	
+2001-11-08 21:51  Michael Neumann <mneumann@ntecs.de>
+
+	* examples/sqlsh.rb: added commands \dt (describe table), \s (short select) and \pl (page length)
+	
+2001-10-30 12:51  Michael Neumann <mneumann@ntecs.de>
+
+	* doc/index.rd: fixed typo
+	
+
+
+===============================================================================
+ Tag dbi-0-0-10 (2001-10-22 16:09 UTC)
+===============================================================================
+
+
+2001-10-22 16:07  Michael Neumann <mneumann@ntecs.de>
+
+	* doc/index.rd: new release
+	
+2001-10-22 16:05  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbi/dbi.rb: preced driver specific functions with __
+	
+2001-10-22 15:59  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbd_odbc/ODBC.rb: added odbc_ignorecase option (submitted by Sean O'Halpin)
+	
+2001-10-10 13:33  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbd_mysql/Mysql.rb: added method StatementHandle#fetch_scroll
+	added createdb, dropdb, reload, shutdown
+	
+2001-10-10 10:47  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbi/dbi.rb: method DBI.get_driver renamed to DBI._get_full_driver
+	new method DBI.get_driver now returns only  DriverHandle object
+	added attribute reader for DBI::Handle
+	
+2001-10-10 10:39  Michael Neumann <mneumann@ntecs.de>
+
+	* examples/proxyserver.rb: DBI.get_driver => DBI._get_full_driver
+	
+
+
+===============================================================================
+ Tag dbi-0-0-9 (2001-09-07 13:40 UTC)
+===============================================================================
+
+
+2001-09-05 21:56  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbi/sql.rb: fixed bug in "quote" (found by Steven Davies)
+	
+2001-08-30 14:34  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/: dbd_pg/Pg.rb, dbd_mysql/Mysql.rb: columns: size=>precision; decimal_digits=>scale
+	
+2001-08-30 14:30  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbi/dbi.rb: changed SQL_type constants
+	
+2001-08-30 14:10  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbd_db2/DB2.rb: column_info returns more info's
+	
+2001-08-30 14:06  Michael Neumann <mneumann@ntecs.de>
+
+	* examples/proxyserver.rb: changed DBD version checking
+	
+2001-08-30 14:06  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbd_proxy/Proxy.rb: changed version checking
+	
+2001-08-30 14:05  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbd_odbc/ODBC.rb: removed patch required for Ruby/ODBC 0.4
+	
+2001-08-30 14:01  Michael Neumann <mneumann@ntecs.de>
+
+	* doc/index.rd: added more contributors; new example; updated dbd_odbc (required newer version)
+	
+2001-08-30 13:34  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbi/dbi.rb: moved DBI::ColumnInfo to own file columninfo.rb
+	removed DBD::COMPATIBLE_API_VERSIONS (now use major/minor)
+	
+2001-08-30 13:31  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbi/columninfo.rb: initial import (moved from dbi.rb)
+	
+2001-08-23 22:11  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbi/dbi.rb: added DBI::DBD::COMPATIBLE_API_VERSIONS
+	
+2001-08-23 22:09  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbd_proxy/Proxy.rb: fixed DBD problems
+	
+2001-08-23 22:09  Michael Neumann <mneumann@ntecs.de>
+
+	* examples/proxyserver.rb: fixed DBD version problems
+	
+2001-08-23 22:05  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbd_proxy/Proxy.rb: fixed problems with different DBD version on the server side
+	
+2001-08-23 22:04  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbd_mysql/Mysql.rb: added Database#columns; by Eli Green
+	
+2001-08-23 21:47  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbd_pg/Pg.rb: added Database#columns from Eli Green
+	
+2001-08-23 20:59  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbi/dbi.rb: StatementHandle#column_info returns now array of DBI::ColumnInfo
+	added class DBI::ColumnInfo
+	added method DatabaseHandle#columns(table) and BaseDatabase#columns(table)
+	
+2001-08-21 21:01  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbi/utils.rb: fixed bug in XMLFormatter.table (found by Jim Menard)
+	
+
+
+===============================================================================
+ Tag dbi-0-0-8 (2001-07-28 12:08 UTC)
+===============================================================================
+
+
+2001-07-28 11:58  Michael Neumann <mneumann@ntecs.de>
+
+	* doc/index.rd: new version
+	
+2001-07-26 00:56  jweirich
+
+	* lib/dbi/: row.rb, test/testrow.rb: Fixed row.rb so that dup and clone work
+	
+2001-07-19 09:37  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbi/dbi.rb: fixed bug in load_driver (thanks to John Gorman)
+	
+2001-07-17 16:57  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbi/sql.rb: corrected quoting for Time, Date and DateTime
+	
+
+
+===============================================================================
+ Tag dbi-0-0-7 (2001-07-11 21:59 UTC)
+===============================================================================
+
+
+2001-07-10 15:07  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbi/dbi.rb: fixed bug; missing else-branch and return
+	
+
+
+===============================================================================
+ Tag dbi-0-0-6 (2001-07-06 19:42 UTC)
+===============================================================================
+
+
+2001-07-06 19:35  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbi/dbi.rb: fixed bug in load_driver (added return found)
+	
+2001-07-06 18:21  Michael Neumann <mneumann@ntecs.de>
+
+	* doc/index.rd: new release
+	
+2001-07-06 18:16  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbd_pg/Pg.rb: added DBI URI parameter database additionally to dbname
+	
+2001-07-06 18:14  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbd_proxy/Proxy.rb: rewritten DBI URI parser (due to dsn=...;...;)
+	
+2001-07-06 18:14  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbi/utils.rb: added patch by John Gorman for Utils.parse_params to allow database:host instead of database=...;host=...
+	
+2001-07-06 18:13  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbi/dbi.rb: added case-insensitive DBD name patch by John Gorman (e.g. dbi:Mysql:... and dbi:mysql:... should both work)
+	
+2001-06-29 17:18  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbi/: dbi.rb, sql.rb, utils.rb: removed some warnings
+	
+2001-06-29 03:27  jweirich
+
+	* test/testdbi.rb: Removed spaces before arg lists (warnings using -w)
+	
+2001-06-22 12:28  jweirich
+
+	* lib/dbi/test/testdbi.rb, test/README, test/testdbi.rb,
+	test/example/config.sh, test/example/example.cfg,
+	test/example/setup.sh, test/example/teardown.sh: Moved testdbi.rb to toplevel test dir.  Added configurability
+	
+2001-06-18 13:59  Michael Neumann <mneumann@ntecs.de>
+
+	* examples/sqlsh.rb: added input/output support
+	
+2001-06-18 13:49  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbi/utils.rb: added conv_param to convert Date/Time arguments to DBI::Date/Time
+	
+2001-06-18 13:48  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbi/sql.rb: added Masatoshi SEKI's Coerce class
+	
+2001-06-18 13:47  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbi/dbi.rb: improved DBI:: Date/Time/Timestamp classes, added automatic coercion from Date/automatic Time to DBI::Date/Time in parmeters
+	
+2001-06-18 13:45  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbd_pg/Pg.rb: added coercing from Masatoshi SEKI
+	
+2001-06-18 12:02  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbd_pg/Pg.rb: 
+	connection changed to "dbi:Pg:dbname=..;host=...;port=...;tty=;options="
+	
+2001-06-17 20:04  jweirich
+
+	* lib/dbi/: sql.rb, test/testdbi.rb, test/testsqlbind.rb,
+	test/testsqlquote.rb: Updated the sql binding methods to correctly ignore ? in a string. Tests also updated.
+	
+2001-06-11 12:59  Michael Neumann <mneumann@ntecs.de>
+
+	* examples/sqlsh.rb: output available DBDs (call sqlsh.rb without params) even if an error occured
+	
+2001-06-11 12:58  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbi/trace.rb: added require "dbi" to work as "ruby -r dbi/trace myprog.rb"
+	
+2001-06-11 10:45  Michael Neumann <mneumann@ntecs.de>
+
+	* doc/index.rd: ChangeLog and ToDo section
+	
+2001-06-11 10:44  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbi/dbi.rb: version => 0.0.6, moved ToDo's into file doc/ToDo
+	
+2001-06-11 00:11  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbi/sql.rb: fixed bug found by Masatoshi SEKI in bind(self, "WHERE a=?", ["connected?"])
+	
+2001-06-11 00:09  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbi/test/: testrow.rb, testsqlbind.rb, testsqlquote.rb: require files in the directory below instead of installed (e.g. ../sql instead of dbi/sql)
+	extended testsqlbind.rb (to check for a bug occured in 0.0.5)
+	
+
+
+===============================================================================
+ Tag dbi-0-0-5 (2001-06-08 20:31 UTC)
+===============================================================================
+
+
+2001-06-08 20:30  Michael Neumann <mneumann@ntecs.de>
+
+	* doc/: index.rd, html/index.html: changed downloads
+	
+2001-06-08 20:28  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbd_odbc/ODBC.rb: corrected data_sources ("dbi:ODBC:" + ...)
+	
+2001-06-08 20:21  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbi/: dbi.rb, trace.rb: added tracing to DBI
+	
+2001-06-07 20:13  Michael Neumann <mneumann@ntecs.de>
+
+	* examples/sqlsh.rb: added resuce when showing the available DSN
+	
+2001-06-07 19:12  Michael Neumann <mneumann@ntecs.de>
+
+	* doc/html/index.html, lib/dbd_db2/DB2.rb: added fetch_scroll as well as Date/Time convertion for DB2
+	
+2001-06-07 19:10  Michael Neumann <mneumann@ntecs.de>
+
+	* doc/index.rd: added ODBC
+	
+2001-06-07 19:06  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbi/dbi.rb: added classes Date and Time
+	
+2001-06-07 19:06  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/: PATHCONV, dbd_odbc/ODBC.rb: initial import
+	
+2001-06-07 13:52  Michael Neumann <mneumann@ntecs.de>
+
+	* doc/html/index.html, lib/PATHCONV, lib/dbd_msql/Msql.rb,
+	lib/dbd_mysql/Mysql.rb: added method do in Mysql
+	initial import of Msql
+	
+2001-06-07 13:52  Michael Neumann <mneumann@ntecs.de>
+
+	* doc/index.rd: mSQL added
+	
+2001-06-07 10:42  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/: dbd_ado/ADO.rb, dbd_db2/DB2.rb, dbd_interbase/InterBase.rb,
+	dbd_mysql/Mysql.rb, dbd_oracle/Oracle.rb, dbd_pg/Pg.rb,
+	dbd_proxy/Proxy.rb, dbi/dbi.rb: changed raising DBI::Error to DBI::DatabaseError
+	changed method DBI::DatabaseError.new
+	
+2001-06-06 15:32  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbi/utils.rb: extended XMLFormatter methods row and table
+	
+2001-06-05 22:33  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbd_pg/doc/README: adapted towards new version 0.0.5
+	
+2001-06-05 22:30  Michael Neumann <mneumann@ntecs.de>
+
+	* ext/dbd_sybase/doc/README: outdated
+	
+2001-06-05 22:28  Michael Neumann <mneumann@ntecs.de>
+
+	* doc/html/index.html: added content
+	
+2001-06-05 22:25  Michael Neumann <mneumann@ntecs.de>
+
+	* doc/: create_html, index.rd, html/rubyStyle.css: new README file
+	
+2001-06-05 22:23  Michael Neumann <mneumann@ntecs.de>
+
+	* README: removed content, forward to doc/index.rd
+	
+2001-06-05 12:17  Michael Neumann <mneumann@ntecs.de>
+
+	* examples/proxyserver.rb: improved some code
+	
+2001-06-05 12:14  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbd_interbase/InterBase.rb: added error handling => DBI::Error
+	
+2001-06-05 12:07  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbd_pg/Pg.rb: changed $! (.dup) to $!.type.to_s (to fix the DRbUnknown DBD::Proxy bug)
+	
+2001-06-05 12:06  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbd_mysql/Mysql.rb: added error handling -> DBI::Error
+	added ?-parameter markers binding
+	removed ::Mysql.quote because it didn't worked as expected
+	
+2001-06-05 10:28  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbd_ado/ADO.rb: fixed misbehaviour in #finish. now supports parameter markers
+	
+2001-06-05 09:44  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbi/utils.rb: fixed bug (one parenthese too much)
+	
+2001-06-04 14:24  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/PATHCONV: added Proxy
+	
+2001-06-04 14:23  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbd_proxy/Proxy.rb, examples/proxyserver.rb: initial import
+	
+2001-06-04 14:22  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbi/dbi.rb: added DBI.get_driver (to access the underlying DBD-Driver), needed by ProxyServer
+	@@driver_map contains now arrays of DBI::DriverHandle and DBD::Driver -> modified all methods which use it
+	added checks in DatabaseHandle select_one, select_all, [], []= if it is already closed -> raise exemption
+	
+2001-06-04 14:15  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbi/row.rb: added methods to_h, field_names (alias to column_names) and fixed typo-bug
+	
+2001-06-04 14:13  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbd_pg/Pg.rb: added method DatabaseHandle#tables and modified load_type_map to return CHAR's
+	
+2001-06-02 19:20  Rainer Perl
+
+	* ext/dbd_sybase/extconf.rb: applied patch from Akinori MUSHA
+	
+2001-06-02 18:06  Rainer Perl
+
+	* doc/html/index.html: added example web-index
+	
+2001-06-01 11:04  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbd_oracle/Oracle.rb: improved speed, fixed some bugs
+	
+2001-05-31 14:34  Michael Neumann <mneumann@ntecs.de>
+
+	* examples/sqlsh.rb: fixed bug (rescue instead ensure), which had the consequence readline was never used
+	
+2001-05-31 14:18  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbd_mysql/Mysql.rb: changed in datasource, mysql to Mysql
+	
+2001-05-31 14:17  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbi/row.rb: 
+	added "include Enumerable"
+	
+2001-05-31 14:16  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/PATHCONV: install wrapper together with dbi
+	
+2001-05-31 13:54  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbi/row.rb: fixed bug, so size_or_arr can now be nil, which creates an Array of size col_names.size
+	
+2001-05-31 13:53  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/wrapper/dbi.rb: initial creation
+	
+2001-05-31 13:53  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/PATHCONV: add directory wrapper which installs directly into site-ruby
+	
+2001-05-31 13:52  Michael Neumann <mneumann@ntecs.de>
+
+	* examples/sqlsh.rb: removed double :: in DSN output
+	
+2001-05-31 13:28  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbi/test/: testdbi.rb, testrow.rb, testsqlbind.rb,
+	testsqlquote.rb: initial import of test-cases, from Jim Weirichs Postgesql DBD
+	
+2001-05-31 13:27  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbi/utils.rb: 
+	move some methods from dbi/dbi into this file
+	
+2001-05-31 13:26  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbi/sql.rb: initial creation.
+	extracted from Jim Weirichs basicquote.rb, basicbind.rb and Postgresql.rb (query?)
+	
+2001-05-31 13:25  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbi/row.rb: use delegator to Array
+	many features added, e.g dbrow["firstname", "lastname", ...] => ['Michael', 'Neumann', ...]
+	passed Jims testcase
+	
+2001-05-31 13:23  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbi/dbi.rb: moved module Utils into file dbi/utils.rb
+	use Jim Weirichs SQL::BasicQuote
+	
+2001-05-31 13:19  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbd_ado/ADO.rb: 
+	use SQL.query? instead of own version
+	
+2001-05-31 13:18  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbd_pg/test/testdbipg.rb: 
+	initial import from Jim Weirichs ruby-dbi-postgresql-28.05.2001.7.tgz
+	changed Postgres to Pg
+	
+2001-05-31 13:17  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbd_pg/doc/README: 
+	initial import from Jim Weirichs ruby-dbi-postgresql-28.05.2001.7.tgz
+	
+2001-05-31 13:16  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbd_pg/Pg.rb: 
+	extracted some goodies to dbi/sql.rb
+	changed Postgresql to Pg
+	
+2001-05-31 13:14  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbd_pg/Pg.rb: 
+	initial import from Jim Weirichs ruby-dbi-postgesql-28.05.2001.7.tgz
+	
+2001-05-31 13:13  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/PATHCONV: 
+	added dbd_pg
+	
+2001-05-31 10:21  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbd_ado/ADO.rb: 
+	fixed several bugs in fetch/fetch_scroll, now has more functionality
+	
+2001-05-31 10:20  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbi/dbi.rb: 
+	fixed constant multiple-assignment bug, (1..6) -> (1..6).to_a
+	fixed exception-raising bug, parameters in DBI::Error now all optional
+	fixed bug in fetch_scroll (rows -> row)
+	
+2001-05-31 10:18  Michael Neumann <mneumann@ntecs.de>
+
+	* examples/sqlsh.rb: 
+	added new commands (commit, rollback, autocommit)
+	fixed readline-bug, readline -> $stdin.readline
+	
+2001-05-30 18:59  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbi/dbi.rb: 
+	added StatementHandle#finished?
+	added check in DatabaseHandle#execute/#prepare in block-form, if finished? before calling #finish
+	changed require "x" -> require "dbi/x"
+	
+2001-05-30 18:43  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbd_ado/ADO.rb: 
+	initial import
+	
+2001-05-30 18:40  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/PATHCONV: 
+	added ADO entry
+	
+2001-05-30 18:37  Michael Neumann <mneumann@ntecs.de>
+
+	* examples/sqlsh.rb: 
+	don't rely on "readline", works now without
+	
+2001-05-30 12:51  Michael Neumann <mneumann@ntecs.de>
+
+	* examples/: sqlsh.rb, sqlsh.rb.new, test1.pl, test1.rb,
+	test_blob.rb, xmltest.rb: 
+	initial import
+	
+2001-05-30 12:43  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbd_mysql/doc/: HISTORY, README: 
+	new entry
+	
+2001-05-30 12:40  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbd_oracle/Oracle.rb: 
+	initial import
+	
+2001-05-30 12:40  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbd_interbase/InterBase.rb: 
+	added new DBDs
+	initial import
+	initial import
+	
+2001-05-30 12:40  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbd_db2/DB2.rb: 
+	added new DBDs
+	initial import
+	
+2001-05-30 12:40  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/PATHCONV: 
+	added new DBDs
+	
+2001-05-30 12:36  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbd_mysql/: Mysql.rb, dbd_mysql.rb: 
+	upgraded to new version 0.5
+	
+2001-05-29 11:22  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbi/dbi.rb: 
+	almost complete rewrite of DBI by Michael Neumann
+	
+2001-05-29 11:16  Michael Neumann <mneumann@ntecs.de>
+
+	* lib/dbi/: row.rb, utils.rb: 
+	initial import
+	
+2001-05-08 14:05  Rainer Perl
+
+	* ext/dbd_sybase/: dbd_sybase.c, doc/HISTORY, doc/README: Updated dbd_sybase (now 0.0.3)
+	
+2001-05-06 17:59  Rainer Perl
+
+	* LICENSE, README, setup.rb, examples/test1.rb, ext/PATHCONV,
+	ext/dbd_sybase/dbd_sybase.c, ext/dbd_sybase/extconf.rb,
+	ext/dbd_sybase/doc/HISTORY, ext/dbd_sybase/doc/README,
+	lib/PATHCONV, lib/dbd_mysql/dbd_mysql.rb,
+	lib/dbd_mysql/doc/HISTORY, lib/dbd_mysql/doc/README,
+	lib/dbi/dbi.rb: Initial revision
+	
+2001-05-06 17:59  Rainer Perl
+
+	* LICENSE, README, setup.rb, examples/test1.rb, ext/PATHCONV,
+	ext/dbd_sybase/dbd_sybase.c, ext/dbd_sybase/extconf.rb,
+	ext/dbd_sybase/doc/HISTORY, ext/dbd_sybase/doc/README,
+	lib/PATHCONV, lib/dbd_mysql/dbd_mysql.rb,
+	lib/dbd_mysql/doc/HISTORY, lib/dbd_mysql/doc/README,
+	lib/dbi/dbi.rb: Imported sources
+	

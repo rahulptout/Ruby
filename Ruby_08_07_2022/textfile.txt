@@ -1,0 +1,2 @@
+Rahul palse the method sysread to read the contents of a file. You can open the file in any of the modes when using the method sysread. 
+For example −
