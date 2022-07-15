@@ -1,0 +1,9 @@
+   Input = An string of paragraph.
+   Output = Hash key and value pair. a key word content and a value  count content.
+
+1. Enter pararaph and change into downcase.
+2. In Input string removed special symbols with the help of .gsub() and spliting string with the help of white space .split() method convered Array String.
+
+3. declared
+
+
