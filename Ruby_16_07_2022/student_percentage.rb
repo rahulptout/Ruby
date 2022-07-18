@@ -1,0 +1,2 @@
+class Student_Percentage
+end
