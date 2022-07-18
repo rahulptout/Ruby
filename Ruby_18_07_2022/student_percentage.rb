@@ -16,7 +16,21 @@ class Student_Percentage
       @sum += i
     end
     @per = (@sum / @count)
-    puts "student percentage : #{@per}%"
+    # puts "student percentage : #{@per}%"
+    case @per
+    when 0..33
+      puts "student percentage : #{@per}% grade -- F"
+    when 34..59
+      puts "student percentage : #{@per}% grade -- E"
+    when 60..74
+      puts "student percentage : #{@per}% grade -- C"
+    when  75..84
+      puts "student percentage : #{@per}% grade -- B"
+    when  85..94
+      puts "student percentage : #{@per}% grade -- A"
+    when 95..100
+      puts "student percentage : #{@per}% grade -- A+"
+    end
   end
 end
 
@@ -24,7 +38,7 @@ end
 
 
 class DataInsert
-  def input
+  def studentDataInsert
 
     $dataNumber +=1
     puts "Student :---------- #{$dataNumber}"
@@ -44,9 +58,9 @@ class DataInsert
 
 
 
-  def calling(number)
+  def ObjectCreate(number)
     (1..number).each do |a|
-      count, stu = input
+      count, stu = studentDataInsert
       student = Student_Percentage.new(count,stu)
       student.calculation
 
@@ -54,7 +68,7 @@ class DataInsert
   end
 end
 
-db = DataInsert.new()
+datainsert = DataInsert.new()
 print "Enter data count : "
 a  = gets.chomp.to_i
-db.calling(a)
+datainsert.ObjectCreate(a)

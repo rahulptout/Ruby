@@ -3,6 +3,9 @@
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/Ruby" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Ruby-1" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Ruby-2" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Ruby-3" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/Ruby_14_07_2022" vcs="Git" />
   </component>
 </project>

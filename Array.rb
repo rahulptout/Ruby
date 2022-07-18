@@ -1,2 +1,2 @@
-array << "rahul"
+array = ["rahul"]
 puts array

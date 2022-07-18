@@ -1,9 +1,23 @@
-   Input = An string of paragraph.
-   Output = Hash key and value pair. a key word content and a value  count content.
+   Input = A string of paragraphs.
+   Output = Hash key and value pair. a keyword content and a value count content.
 
-1. Enter pararaph and change into downcase.
-2. In Input string removed special symbols with the help of .gsub() and spliting string with the help of white space .split() method convered Array String.
+1. Enter paragraph and change into downcase.==> wordsArray = gets.chomp.to_s.downcase
+2. In the Input string remove special symbols with the help of .gsub(/[,.;]/,"") and split the string with the help of white space .split() method convert Array String.
 
-3. declared
+3. Declared hash ht = Hash.new {|h,k| h[k]=[]} , h is words and k is count .
+
+4. Run two nested For loops variable use i, j, the first loop 1st to the last element for retrieving in wordsArray one by one declared count =0, And the second loop to matching words in the Array string.
+
+5. Checked condition in if block wodsArray i==j true then count +=1
+6. After the inner for loop Checked if !ht.member?(i) and then inserted key and value pair in hash ht["#{i}"] << count 
+
+7. Sorted the Array String ht = ht.sort_by(&:last)
+
+8. Declared hash ht1 = Hash.new {|h1,k1| h1[k1]=[]}
+9. Value k initialize with the k=ht.length-1 
+10.runed while loop condition k>=0 
+11. Assign value in hash ht1.store("#{ht[k][0]}", ht[k][1][0])
+12. Every time Value of k decreases by 1 .
+13. Print hash key and value pair in the descending order 
 
 
